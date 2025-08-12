@@ -1,0 +1,985 @@
+:root {
+    --primary-color: #1a1a1a; /* Noir profond / Gris anthracite */
+    --secondary-color: #b8860b; /* Or vieilli / Bronze */
+    --accent-color: #e0b973; /* Or clair / Champagne */
+    --text-dark: #333333;
+    --text-light: #f0f0f0;
+    --background-light: #fdfdfd; /* Blanc creme */
+    --background-dark: #2c3e50; /* Bleu nuit */
+    --border-color: #e0e0e0;
+    --font-primary: 'Montserrat', sans-serif; /* Moderne, propre */
+    --font-secondary: 'Playfair Display', serif; /* Elegant, classique pour les titres */
+}
+
+/* Importation de polices Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* --- Header --- */
+header {
+    background: var(--background-light);
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 3px 15px rgba(0,0,0,0.03);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header #branding h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+}
+
+header #branding a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header nav li {
+    display: inline-block;
+    margin-left: 45px;
+}
+
+header nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.08rem;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 6px;
+}
+
+header nav a:hover, header nav a.active {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../images/default-hotel.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--text-light);
+    text-align: center;
+    padding: 180px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 550px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-secondary);
+    font-size: 5rem;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+.hero-content p {
+    font-size: 1.6rem;
+    font-weight: 300;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* --- Booking Form (on Hero or top of page) --- */
+.booking-form-container {
+    background: var(--background-light);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.18);
+    margin-top: -120px;
+    position: relative;
+    z-index: 10;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.booking-form {
+    display: contents;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group label {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.form-group input, .form-group select {
+    padding: 16px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 5px rgba(224, 185, 115, 0.25);
+    outline: none;
+}
+
+.booking-form-container .btn {
+    flex-shrink: 0;
+    padding: 18px 35px;
+    font-size: 1.2rem;
+    margin-top: 30px;
+}
+
+/* --- General Buttons --- */
+.btn {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--text-light);
+    padding: 16px 35px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 1px solid var(--secondary-color);
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-cancel {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-cancel:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+}
+
+.btn-small {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    margin-right: 15px; /* Augmenter la marge droite */
+    margin-bottom: 10px; /* Ajouter une marge inferieure pour l'empilement */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* white-space: nowrap; */ /* Supprime cette propriete pour permettre le retour a la ligne */
+}
+
+/* --- Main Content Sections --- */
+.main-content {
+    flex-grow: 1;
+    padding: 100px 0;
+}
+
+.page-title {
+    font-family: var(--font-secondary);
+    text-align: center;
+    margin-bottom: 70px;
+    font-size: 4rem;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 25px;
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 5px;
+    background: var(--accent-color);
+    margin: 25px auto 0 auto;
+    border-radius: 5px;
+}
+
+/* --- Hotel Cards --- */
+.hotels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 60px;
+}
+
+.hotel-card {
+    background: var(--background-light);
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.hotel-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+}
+
+.hotel-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.hotel-card-content {
+    padding: 35px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.hotel-card-content h3 {
+    font-family: var(--font-secondary);
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hotel-card-content p {
+    font-size: 1.05rem;
+    color: #666;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.hotel-card-content .btn {
+    align-self: flex-start;
+    margin-top: 25px;
+}
+
+/* --- Hotel Details Page --- */
+.hotel-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 70px;
+    margin-bottom: 70px;
+    align-items: start;
+}
+
+.hotel-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.hotel-info h3 {
+    font-family: var(--font-secondary);
+    color: var(--primary-color);
+    font-size: 3.2rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.hotel-info p {
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+}
+
+.hotel-info .btn {
+    margin-right: 25px;
+    margin-top: 35px;
+}
+
+.section-title {
+    font-family: var(--font-secondary);
+    margin-top: 80px;
+    margin-bottom: 40px;
+    border-bottom: 4px solid var(--accent-color);
+    padding-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 3.2rem;
+    text-align: left;
+}
+
+.chambres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 50px;
+}
+
+.chambre-card {
+    background: var(--background-light);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chambre-card h4 {
+    font-family: var(--font-secondary);
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.chambre-card p {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.chambre-card .tarif {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.services-list {
+    list-style: none;
+    padding: 0;
+    column-count: 2;
+    column-gap: 50px;
+    margin-top: 30px;
+}
+
+.services-list li {
+    padding: 12px 0;
+    font-size: 1.1rem;
+    color: #555;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.services-list li:last-child, .services-list li:nth-last-child(2) {
+    border-bottom: none;
+}
+
+/* --- Page Reservation --- */
+.reservation-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 70px;
+    padding: 60px 0;
+}
+
+.reservation-summary h3, .client-form h3 {
+    font-family: var(--font-secondary);
+    color: var(--primary-color);
+    font-size: 2.8rem;
+    margin-top: 0;
+    margin-bottom: 35px;
+}
+
+.reservation-summary .summary-card {
+    background: var(--background-light);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+.summary-card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.summary-card p {
+    margin-bottom: 15px;
+    font-size: 1.15rem;
+}
+
+.summary-card .total-price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border-color);
+}
+
+.client-form {
+    background: var(--background-light);
+    padding: 60px;
+    border-radius: 15px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+.client-form .form-group {
+    margin-bottom: 30px;
+}
+
+.client-form .btn {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.3rem;
+    margin-top: 30px;
+}
+
+/* --- Page de Confirmation --- */
+.confirmation-box {
+    background: var(--background-light);
+    padding: 70px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 1000px;
+    margin: 90px auto;
+}
+
+.confirmation-icon {
+    font-size: 80px;
+    color: #28a745; /* Vert succes */
+    width: 140px;
+    height: 140px;
+    line-height: 140px;
+    border-radius: 50%;
+    border: 6px solid #28a745;
+    margin: 0 auto 50px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmation-box h2 {
+    font-family: var(--font-secondary);
+    color: var(--primary-color);
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+}
+
+.confirmation-lead {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 50px;
+}
+
+.confirmation-details {
+    text-align: left;
+    margin: 60px 0;
+    padding: 40px;
+    background: var(--background-light);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.confirmation-details h3 {
+    font-family: var(--font-primary);
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.confirmation-details p {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.confirmation-number {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+}
+
+.confirmation-box .btn {
+    margin-top: 60px;
+    padding: 20px 45px;
+    font-size: 1.4rem;
+}
+
+/* --- Page de Connexion / Inscription --- */
+.login-container {
+    max-width: 600px;
+    margin: 90px auto;
+    padding: 70px;
+    background: var(--background-light);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.login-container h2 {
+    font-family: var(--font-secondary);
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.login-container p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.login-form .form-group {
+    text-align: left;
+    margin-bottom: 35px;
+}
+
+.login-form .btn {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.3rem;
+    margin-top: 25px;
+}
+
+.login-container a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.login-container a:hover {
+    color: var(--secondary-color);
+}
+
+.error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+.success-message {
+    color: #28a745;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+/* --- Dashboard Layout --- */
+.dashboard-container {
+    display: flex;
+    
+    width: 90%;
+    max-width: 1500px;
+    margin: 50px auto;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.dashboard-sidebar {
+    flex: 0 0 300px;
+    background: var(--background-light);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    align-self: flex-start;
+}
+
+.dashboard-sidebar h3 {
+    font-family: var(--font-secondary);
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.dashboard-sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dashboard-sidebar nav a {
+    display: block;
+    padding: 18px 30px;
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dashboard-sidebar nav a:hover, .dashboard-sidebar nav a.active {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.dashboard-content {
+    flex: 1;
+    background: var(--background-light);
+    padding: 60px;
+    border-radius: 15px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+.dashboard-content h2 {
+    font-family: var(--font-secondary);
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.dashboard-content p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* --- Table Styles --- */
+.table-container {
+    overflow-x: auto;
+    margin-top: 50px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    font-size: 1.1rem;
+}
+
+table th, table td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+table th {
+    background-color: var(--background-light);
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.status-confirmee { color: #28a745; font-weight: 600; }
+.status-annulee { color: #dc3545; font-weight: 600; }
+.status-en.cours { color: #007bff; font-weight: 600; }
+.status-terminee { color: #6c757d; font-weight: 600; }
+
+/* --- Admin Forms --- */
+.form-container {
+    background: var(--background-light);
+    padding: 60px;
+    border-radius: 15px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    margin-bottom: 60px;
+}
+
+.form-container h3 {
+    font-family: var(--font-secondary);
+    color: var(--primary-color);
+    font-size: 2.8rem;
+    margin-top: 0;
+    margin-bottom: 35px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    margin-bottom: 35px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="number"],
+.form-container input[type="tel"],
+.form-container input[type="password"],
+.form-container input[type="date"],
+.form-container select,
+.form-container textarea {
+    width: calc(100% - 40px);
+    padding: 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    margin-top: 12px;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container input[type="checkbox"] {
+    margin-top: 15px;
+    transform: scale(1.4);
+}
+
+.form-container input:focus, .form-container select:focus, .form-container textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 5px rgba(224, 185, 115, 0.25);
+    outline: none;
+}
+
+.form-container textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-container .btn {
+    margin-top: 30px;
+    margin-right: 25px;
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 50px 0;
+    margin-top: auto;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    box-shadow: 0 -3px 15px rgba(0,0,0,0.03);
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+footer p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--secondary-color);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .container {
+        width: 95%;
+    }
+
+    header nav li {
+        margin-left: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+
+    .hero-content p {
+        font-size: 1.3rem;
+    }
+
+    .booking-form-container {
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .booking-form-container .btn {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+
+    .page-title {
+        font-size: 3.2rem;
+    }
+
+    .hotels-grid, .chambres-grid {
+        gap: 40px;
+    }
+
+    .hotel-card-content h3 {
+        font-size: 2rem;
+    }
+
+    .hotel-details-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .section-title {
+        font-size: 2.8rem;
+    }
+
+    .reservation-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .dashboard-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .dashboard-sidebar {
+        width: 100%;
+        flex: none;
+    }
+
+    .services-list {
+        column-count: 1;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container input[type="number"],
+    .form-container input[type="tel"],
+    .form-container input[type="password"],
+    .form-container input[type="date"],
+    .form-container select,
+    .form-container textarea {
+        width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    header #branding h1 {
+        font-size: 2rem;
+    }
+
+    header nav li {
+        margin-left: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .hotel-card-content h3 {
+        font-size: 1.8rem;
+    }
+
+    .chambre-card h4 {
+        font-size: 1.8rem;
+    }
+
+    .confirmation-box {
+        padding: 40px;
+        margin: 50px auto;
+    }
+
+    .confirmation-icon {
+        font-size: 60px;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+    }
+
+    .confirmation-box h2 {
+        font-size: 2.5rem;
+    }
+
+    .confirmation-lead {
+        font-size: 1.2rem;
+    }
+
+    .confirmation-details {
+        padding: 25px;
+    }
+
+    .confirmation-details h3 {
+        font-size: 1.6rem;
+    }
+
+    .login-container {
+        padding: 40px;
+        margin: 50px auto;
+    }
+
+    .login-container h2 {
+        font-size: 2.5rem;
+    }
+
+    .login-container p {
+        font-size: 1.1rem;
+    }
+}
